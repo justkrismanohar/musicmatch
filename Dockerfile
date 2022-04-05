@@ -1,5 +1,6 @@
 FROM python:3.9
 
+#Add code
 COPY . .
 
 # set environment variables
@@ -9,10 +10,6 @@ ENV PYTHONUNBUFFERED 1
 # install python dependencies
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Add our code
-ADD ./webapp /opt/webapp/
-WORKDIR /opt/webapp
 
 ENV FLASK_APP run.py
 # gunicorn
